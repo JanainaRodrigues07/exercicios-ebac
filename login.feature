@@ -1,38 +1,34 @@
-Feature: Login na Plataforma
+Funcionalidade: Login na Plataforma
 
-    Como cliente da EBAC-SHOP
-    Quero fazer login na plataforma
-    Para visualizar meus pedidos
+Como cliente da EBAC-SHOP
+Quero fazer login na plataforma
+Para visualizar meus pedidos
 
-    Background:
-        Given que eu seja cliente da EBAC_SHOP
+Contexto:
+Dado que eu seja cliente da EBAC_SHOP
 
-    Scenario Outline: Usuário e senha válidos
-        When digitar <usuario> válido
-        E <senha> válida
-        Then deve ser direcionado para a tela de checkout
+Esquema do Cenário: Usuário e senha válidos
+Quando digitar <usuario> válido
+E <senha> válida
+Então deve ser direcionado para a tela de checkout
 
-        Example:
+Exemplos:
 
-            | usuário               | senha   |
-            | ana@hotmail.com       | 123@abc |
-            | fbraga@hotmail.com    | 653zzz@ |
-            | julia@hotmail.com     | ju321   |
-            | paulolima@hotmail.com | 222lima |
+| usuário               | senha   |
+| ana@hotmail.com       | 123@abc |
+| fbraga@hotmail.com    | 653zzz@ |
+| julia@hotmail.com     | ju321   |
+| paulolima@hotmail.com | 222lima |
 
 
-    Scenario: Usuário inválido
-        When digitar o usuário "yyyy43@hotmail.com"
-        E a senha "123@abc"
-        Then deve exibir mensagem de alerta: "Usuário ou senha inválidos"
+Esquema do Cenário: Usuário e senha inválidos
+Quando digitar <usuario> inválido
+E <senha> inválida
+Então deve exibir <mensagem> de alerta
 
-    Scenario: Senha inválida
-        When digitar o usuário "ana@hotmail.com"
-        E a senha "qwes@000"
-        Then deve exibir mensagem de alerta: "Usuário ou senha inválidos"
+Exemplos:
 
-    Scenario: Usuário e senha inválidos
-        When digitar o usuário "yyyy43@hotmail.com"
-        E a senha "qwes@000"
-        Then deve exibir mensagem de alerta: "Usuário ou senha inválidos"
-
+| usuário            | senha    | mensagem                     |
+| yyyy43@hotmail.com | 123@abc  | "Usuário ou senha inválidos" |
+| ana@hotmail.com    | qwes@000 | "Usuário ou senha inválidos" |
+| yyyy43@hotmail.com | qwes@000 | "Usuário ou senha inválidos" |
