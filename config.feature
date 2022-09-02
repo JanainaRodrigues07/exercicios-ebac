@@ -17,25 +17,17 @@ Cenário: Selecionar cor, tamanho e quantidade
 Quando selecionar cor, tamanho e quantidade de um produto
 Então o produto deve ser adicionado no carrinho com sucesso
 
-Esquema do Cenário: Não selecionar uma das opções
-Quando deixar de selecionar uma das opções do produto
-Então deve exibir <mensagem> de alerta
+Cenário: Não selecionar uma das opções
+Quando eu deixar de selecionar cor, tamanho ou quantidade
+Então deve exibir a mensagem de alerta: "Selecione as opções do produto antes de adicioná-lo no carrinho"
+
+Esquema do Cenário: Inserir produtos no carrinho
+Quando eu inserir a <quantidade> de produto no carrinho
+Então deve exibir a <mensagem>
 
 Exemplos:
 
-| ação                      | mensagem                                                          |
-| não selecionar cor        | "Selecione as opções do produto antes de adicioná-lo no carrinho" |
-| não selecionar tamanho    | "Selecione as opções do produto antes de adicioná-lo no carrinho" |
-| não selecionar quantidade | "Selecione as opções do produto antes de adicioná-lo no carrinho" |
-
-Esquema do Cenário: Adicionar produtos no carrinho
-Quando configurar <produto>
-E exceder o limite de 10 produtos adicionados no carrinho
-Então deve exibir <mensagem> de alerta
-
-Exemplos:
-
-| quantidade de produtos | ação esperada                                         |
-| configurar 9 produtos  | produtos adicionados no carrinho com sucesso          |
-| configurar 10 produtos | produtos adicionados no carrinho com sucesso          |
-| configurar 11 produtos | exibir mensagem: "Limite máximo do carrinho excecido" |
+| quantidade             | mensagem                                       |
+| configurar 9 produtos  | "produtos adicionados no carrinho com sucesso" |
+| configurar 10 produtos | "produtos adicionados no carrinho com sucesso" |
+| configurar 11 produtos | "Limite máximo do carrinho excecido"           |
