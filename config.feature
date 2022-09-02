@@ -15,7 +15,7 @@ Então o produto deve voltar ao estado original
 
 Cenário: Selecionar cor, tamanho e quantidade
 Quando selecionar cor, tamanho e quantidade de um produto
-Então o produto deve ser adicionado no carrinho com sucesso
+Então o produto deve exibir a mensagem de sucesso: "Produto adicionado ao carrinho"
 
 Cenário: Não selecionar uma das opções
 Quando eu deixar de selecionar cor, tamanho ou quantidade
@@ -27,7 +27,7 @@ Então deve exibir a <mensagem>
 
 Exemplos:
 
-| quantidade             | mensagem                                       |
-| configurar 9 produtos  | "produtos adicionados no carrinho com sucesso" |
-| configurar 10 produtos | "produtos adicionados no carrinho com sucesso" |
-| configurar 11 produtos | "Limite máximo do carrinho excecido"           |
+| quantidade          | mensagem                             |
+| inserir 9 produtos  | "Produto adicionado ao carrinho"     |
+| inserir 10 produtos | "Produto adicionado ao carrinho"     |
+| inserir 11 produtos | "Limite máximo do carrinho excecido" |
